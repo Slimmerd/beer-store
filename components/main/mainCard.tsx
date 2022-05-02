@@ -1,6 +1,6 @@
 import React, {ReactNode} from 'react';
 import NextLink from "next/link";
-import {BackgroundProps, Box, chakra, Heading} from "@chakra-ui/react";
+import { BackgroundProps, Box, chakra, Heading, LayoutProps } from '@chakra-ui/react'
 import {isValidMotionProp, motion, useAnimation} from "framer-motion";
 
 type MainCard = {
@@ -9,13 +9,14 @@ type MainCard = {
     url: string,
     flex: number,
     text: string,
+    minH: LayoutProps["minH"]
 }
 
 const ChakraBox = chakra(motion.div, {
     shouldForwardProp: (prop) => isValidMotionProp(prop) || prop === 'children',
 });
 
-const MainCard: React.FC<MainCard> = ({text, url, bgColor, children, flex}) => {
+const MainCard: React.FC<MainCard> = ({minH, text, url, bgColor, children, flex}) => {
 
     const controls = useAnimation();
 
@@ -41,6 +42,7 @@ const MainCard: React.FC<MainCard> = ({text, url, bgColor, children, flex}) => {
                 onHoverEnd={() => {
                     controls.stop()
                 }}
+                minH={minH}
                 flex={flex}
                 bgColor={bgColor}
                 p={5}

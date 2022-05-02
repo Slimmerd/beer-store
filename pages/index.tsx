@@ -23,7 +23,7 @@ const Home: NextPage = () => {
                     </Heading>
                 </Flex>
 
-                <Flex minHeight={"380px"} h={"60vh"} gap={2} p={4} direction={{base: "column", xl: "row"}}>
+                <Flex minHeight={{base: "60vh"}} gap={2} p={4} direction={{base: "column", lg: "row"}}>
                     <ProductsCard/>
                     <Flex direction={"column"} flex={1} gap={2}>
                         <Flex gap={2} flex={1}>

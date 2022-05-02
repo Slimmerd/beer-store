@@ -7,6 +7,7 @@ const ContactsCard = () => {
             url={"/contacts"}
             flex={1}
             bgColor={"yellow.500"}
+            minH={190}
             text={"Наши контактные данные и адрес. Наши контактные данные и адрес."}
         >
             Контакты
