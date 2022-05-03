@@ -1,10 +1,10 @@
 import React from 'react'
-import { Box, Flex, Heading, IconButton } from '@chakra-ui/react'
-import Image from 'next/image'
+import { Box, Flex, Heading, IconButton, Spacer } from '@chakra-ui/react'
 import NextLink from 'next/link'
-import { IoArrowBack } from 'react-icons/io5'
+import { IoArrowBack, IoBeer } from 'react-icons/io5'
 import AboutLeftCard from '../../components/about/aboutLeftCard'
 import AboutRightCard from '../../components/about/aboutRightCard'
+import { IconContext } from 'react-icons'
 
 const AboutPage = () => {
     return (
@@ -23,30 +23,44 @@ const AboutPage = () => {
                         />
                     </NextLink>
                 </Box>
-                <Heading flex={2} as={'h1'}>
+                <Heading flex={2} as={'h1'} textAlign={'center'}>
                     Старый Причал
                 </Heading>
+                <Box flex={1} />
             </Flex>
 
             <Flex p={4} gap={2} direction={'column'}>
-                <Box p={5} bgColor={'gray.500'} rounded={36}>
-                    <Heading size={'lg'}>О нас</Heading>
-
-                    <Flex my={5} gap={2} alignItems={'center'}>
-                        <Heading flex={1} size={'xl'} as={'h2'}>
+                <Flex
+                    p={5}
+                    bgColor={'gray.500'}
+                    rounded={36}
+                    minH={380}
+                    direction={'column'}
+                >
+                    <Heading size={'lg'} as={'h1'}>
+                        О нас
+                    </Heading>
+                    <Spacer />
+                    <Flex my={5} gap={2} height={'100%'} alignItems={'center'}>
+                        <Heading
+                            flex={1}
+                            fontSize={{ base: 'lg', md: '3xl' }}
+                            as={'h2'}
+                        >
                             Мы небольшой пивной магазин в городе Морозовске
                         </Heading>
                         <Box flex={1} textAlign={'center'}>
-                            <Image
-                                src={'/beer.png'}
-                                alt={'Кружка с пивом'}
-                                width={100}
-                                height={143.08}
-                                layout={'fixed'}
-                            />
+                            <IconContext.Provider
+                                value={{
+                                    style: { display: 'inline' }
+                                }}
+                            >
+                                <IoBeer color={'#ffffffeb'} size={150} />
+                            </IconContext.Provider>
                         </Box>
                     </Flex>
-                </Box>
+                    <Spacer />
+                </Flex>
 
                 <Flex>
                     <AboutLeftCard delay={0}>
